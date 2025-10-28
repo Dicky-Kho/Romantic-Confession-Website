@@ -152,7 +152,7 @@
 
     <div class="right">
       <div class="portrait"></div>
-      <div class="name" id="toName">To: Onaa</div>
+      <div class="name" id="toName">To: Her</div>
       <div class="subtitle">A little, honest confession page</div>
       <div class="decor" style="margin-top:16px"></div>
 
@@ -200,7 +200,7 @@
     editBtn.addEventListener('click', ()=>{
       const newTo = prompt('Who is this for? (name shown on the right)', toName.textContent.replace('To: ','').trim());
       if(newTo!==null){
-        toName.textContent = 'To: ' + (newTo.trim() || 'Onaa');
+        toName.textContent = 'To: ' + (newTo.trim() || 'Her');
       }
       const newMsg = prompt('Write your message (keep it short):', messageText.dataset.full || messageText.textContent);
       if(newMsg!==null){
@@ -233,3 +233,4 @@
   </script>
 </body>
 </html>
+

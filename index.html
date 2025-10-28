@@ -27,8 +27,8 @@
       align-items:center;
       justify-content:center;
       padding:28px;
-      overflow-y:auto; /* ✅ allow vertical scroll */
-      overflow-x:hidden; /* hide horizontal overflow only */
+      overflow-y:auto; 
+      overflow-x:hidden; 
       position:relative;
     }
     .card{
@@ -46,7 +46,7 @@
       background-color: var(--card);
       position:relative;
       z-index:2;
-      margin:40px 0; /* ✅ add margin so it doesn’t touch top/bottom on phone */
+      margin:40px 0; 
     }
     @media (max-width:880px){
       .card{
@@ -107,7 +107,7 @@
 
     .sparkle{position:absolute;left:-80px;top:-60px;width:220px;height:220px;background:radial-gradient(circle at 20% 30%, rgba(255,107,129,0.07), transparent 8%), radial-gradient(circle at 80% 80%, rgba(124,92,255,0.06), transparent 8%);opacity:.9;transform:rotate(10deg)}
 
-    /* 💖 raining love */
+    /* raining love */
     .love {
       position: fixed;
       top: -10px;
@@ -121,9 +121,18 @@
       0% {transform: translateY(0) rotate(0deg);opacity:1;}
       100% {transform: translateY(100vh) rotate(360deg);opacity:0;}
     }
+
+    /* hide default controls */
+    audio { display: none; }
   </style>
 </head>
 <body>
+  <!-- 🎵 background song -->
+  <audio id="bgm" loop>
+    <source src="https://dl.dropboxusercontent.com/scl/fi/p8h4meu6ryo3n3rsm8kvv/wwd.mp3juice.blog-Lauv-Believed-Official-Visualizer-320-KBps.mp3?rlkey=zfbh0doai1m2mv0i78oy2mawr
+" type="audio/mp3">
+  </audio>
+
   <div class="card">
     <div class="left">
       <div class="sparkle" aria-hidden></div>
@@ -138,7 +147,7 @@
         </div>
 
         <div class="message-text" id="messageText">
-          Hey… I just wanted to be honest with you. I like you — not just as a friend, but as someone I really admire and care about. I think about you more than I probably should, and I wanna ask you. Would be my girlfriend? <span class="typing" id="cursor"></span>
+          Hey… I just wanted to be honest with you. I like you — not just as a friend, but as someone I really admire and care about. I think about you more than I probably should, and I wanna ask you. Would you be my girlfriend? <span class="typing" id="cursor"></span>
         </div>
 
         <div class="actions">
@@ -152,7 +161,7 @@
 
     <div class="right">
       <div class="portrait"></div>
-      <div class="name" id="toName">To: Her</div>
+      <div class="name" id="toName">To: Onaa</div>
       <div class="subtitle">A little, honest confession page</div>
       <div class="decor" style="margin-top:16px"></div>
 
@@ -170,6 +179,7 @@
     const messageBox = document.getElementById('messageBox');
     const cursor = document.getElementById('cursor');
     const toName = document.getElementById('toName');
+    const bgm = document.getElementById('bgm');
 
     let revealed = false;
 
@@ -192,15 +202,16 @@
     revealBtn.addEventListener('click', ()=>{
       if(revealed) return;
       revealed = true;
+      bgm.volume = 0.4;
+      bgm.play().catch(()=>{}); // play music if blocked initially
       const full = messageText.dataset.full || messageText.textContent;
       typeText(messageText, full);
-      messageBox.animate([{boxShadow:'0 6px 24px rgba(124,92,255,0.06)'},{boxShadow:'0 12px 40px rgba(255,107,129,0.08)'}],{duration:400,fill:'forwards'})
     });
 
     editBtn.addEventListener('click', ()=>{
       const newTo = prompt('Who is this for? (name shown on the right)', toName.textContent.replace('To: ','').trim());
       if(newTo!==null){
-        toName.textContent = 'To: ' + (newTo.trim() || 'Her');
+        toName.textContent = 'To: ' + (newTo.trim() || 'Onaa');
       }
       const newMsg = prompt('Write your message (keep it short):', messageText.dataset.full || messageText.textContent);
       if(newMsg!==null){
@@ -214,9 +225,9 @@
     document.getElementById('noBtn').addEventListener('click', ()=> alert("It's okay — love takes courage ❤️"));
 
     messageText.textContent = '';
-    messageText.dataset.full = 'Hey… I just wanted to be honest with you. I like you — not just as a friend, but as someone I really admire and care about. I think about you more than I probably should, and I wanna ask you. Would be my girlfriend?';
+    messageText.dataset.full = 'Hey… I just wanted to be honest with you. I like you — not just as a friend, but as someone I really admire and care about. I think about you more than I probably should, and I wanna ask you. Would you be my girlfriend?';
 
-    // 💖 Create raining love animation
+    // raining love
     const hearts = ['💖','💕','💞','💘','💝'];
     function createLove() {
       const love = document.createElement('div');
@@ -233,4 +244,3 @@
   </script>
 </body>
 </html>
-

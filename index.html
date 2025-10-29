@@ -19,7 +19,7 @@
     body{
       margin:0;
       background:
-        url('https://i.pinimg.com/1200x/85/78/ad/8578ada91b54dd8393c861ee83eb7799.jpg')
+        url('https://i.pinimg.com/1200x/85/78/ad/8578ada91b54dd8393c861ee83eb7799.jpg') /* Change Background */
         center/cover no-repeat,
         var(--bg);
       color:#e6eef6;
@@ -129,7 +129,7 @@
 <body>
   <!-- 🎵 background song -->
   <audio id="bgm" loop>
-    <source src="https://dl.dropboxusercontent.com/scl/fi/p8h4meu6ryo3n3rsm8kvv/wwd.mp3juice.blog-Lauv-Believed-Official-Visualizer-320-KBps.mp3?rlkey=zfbh0doai1m2mv0i78oy2mawr
+    <source src="https://dl.dropboxusercontent.com/scl/fi/p8h4meu6ryo3n3rsm8kvv/wwd.mp3juice.blog-Lauv-Believed-Official-Visualizer-320-KBps.mp3?rlkey=zfbh0doai1m2mv0i78oy2mawr 
 " type="audio/mp3">
   </audio>
 
@@ -161,12 +161,12 @@
 
     <div class="right">
       <div class="portrait"></div>
-      <div class="name" id="toName">To: Onaa</div>
+      <div class="name" id="toName">To: Her</div>
       <div class="subtitle">A little, honest confession page</div>
       <div class="decor" style="margin-top:16px"></div>
 
       <div style="width:100%;display:flex;gap:8px;justify-content:center;margin-top:6px;flex-wrap:wrap">
-        <button class="btn secondary" id="acceptBtn">She says "Yes"</button>
+        <button class="btn secondary" id="acceptBtn">Yes 💘</button>
         <button class="btn secondary" id="noBtn">No 💔</button>
       </div>
     </div>
@@ -211,7 +211,7 @@
     editBtn.addEventListener('click', ()=>{
       const newTo = prompt('Who is this for? (name shown on the right)', toName.textContent.replace('To: ','').trim());
       if(newTo!==null){
-        toName.textContent = 'To: ' + (newTo.trim() || 'Onaa');
+        toName.textContent = 'To: ' + (newTo.trim() || 'Her');
       }
       const newMsg = prompt('Write your message (keep it short):', messageText.dataset.full || messageText.textContent);
       if(newMsg!==null){
@@ -221,8 +221,8 @@
       }
     });
 
-    document.getElementById('acceptBtn').addEventListener('click', ()=> alert('Yay! She said yes — congrats 🎉'));
-    document.getElementById('noBtn').addEventListener('click', ()=> alert("It's okay — love takes courage ❤️"));
+    document.getElementById('acceptBtn').addEventListener('click', ()=> alert('Honestly, I still can’t believe you said yes. Thank you for accepting me — I’ll do my best to make you happy.'));
+    document.getElementById('noBtn').addEventListener('click', ()=> alert("That’s okay, I understand. Thanks for being honest with me. I hope we can still be friends."));
 
     messageText.textContent = '';
     messageText.dataset.full = 'Hey… I just wanted to be honest with you. I like you — not just as a friend, but as someone I really admire and care about. I think about you more than I probably should, and I wanna ask you. Would you be my girlfriend?';
@@ -244,3 +244,4 @@
   </script>
 </body>
 </html>
+
